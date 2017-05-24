@@ -60,13 +60,13 @@ object CassandraScalaDemo extends App {
   log.info(":::  Select all with Emp_id = 1 ::: ")
   res1.forEach(log.info(_))
 
-  //Select query using Partitioning key
+  //Select query using Partitioning key and Clustering column
   val selectQuery3 = "Select * from employee where emp_id=1 and emp_salary >30000"
   val res3 = session.execute(selectQuery3)
   log.info(":::  Select all with Emp_id = 1 and Salary>30000  ::: ")
   res3.forEach(log.info(_))
 
-  //Select query using Partitioning key
+  //Select query using Partitioning key and Index
   val selectQuery4 = "Select * from employee where emp_id=1 and emp_name='Name1'"
   val res4 = session.execute(selectQuery4)
   log.info(":::  Select all with Emp_id = 1  using index name::: ")
