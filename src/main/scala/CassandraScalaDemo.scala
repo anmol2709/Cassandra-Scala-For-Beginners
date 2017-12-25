@@ -15,18 +15,19 @@ object CassandraScalaDemo extends App {
   val createKeySpaceQuery = "CREATE KEYSPACE cassandraDemo WITH replication = {'class':'SimpleStrategy', 'replication_factor':1};"
   session.execute(createKeySpaceQuery)
   log.info("Keyspace created")
-  Thread.sleep(3000)
+  Thread.sleep(2000)
 
   //Using the KeySpace
   session.execute("USE cassandraDemo")
   log.info("Keyspace entered")
+  Thread.sleep(2000)
 
   //Creating the Table
   val createTableQuery = "CREATE TABLE employee(emp_id int, emp_name text,emp_city text,emp_salary varint,emp_phone varint,PRIMARY KEY(emp_id,emp_salary));"
   session.execute(createTableQuery)
   log.info("Table created")
 
-  Thread.sleep(3000)
+  Thread.sleep(2000)
   //Just waiting for creating the tables to perform insert operation
 
   // Insert Queries
@@ -43,7 +44,9 @@ object CassandraScalaDemo extends App {
   //Indexing Helps Perform Select Query on coloumns other than partitioning column
   val createIndexQuery = "CREATE INDEX emp_name ON employee (emp_name);"
   session.execute(createIndexQuery)
+  log.info("Index created")
 
+  Thread.sleep(2000)
 
   //  SELECT QUERIES
 
